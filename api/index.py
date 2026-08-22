@@ -1,5 +1,8 @@
 from flask import Flask, request, jsonify
+import sys
+from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 from converter import validar_y_convertir, alu_operation
 
 app = Flask(__name__)
