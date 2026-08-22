@@ -117,7 +117,7 @@ body { max-width: none; padding: 0; background: var(--background); color: var(--
 .theme-toggle { position: absolute; top: 0; right: 0; width: 40px; height: 40px; margin: 0; padding: 8px; }
 .theme-icon { font-size: 1rem; line-height: 1; } .theme-label { display: none; }
 .eyebrow { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--primary); margin: 0 0 25px; }
-.page-header h1 { font-family: var(--font-display); font-size: clamp(4.4rem, 10vw, 7.2rem); line-height: 0.86; margin: 0 0 30px; font-weight: 800; }
+.page-header h1 { font-family: var(--font-display); font-size: clamp(4.4rem, 10vw, 7.2rem); line-height: 0.86; margin: 0 0 30px; font-weight: 800; text-align: left; }
 .typing-title { display: inline-block; overflow: hidden; max-width: 0; vertical-align: bottom; white-space: nowrap; animation: typing-title 1.4s steps(12, end) 0.35s forwards; }
 .text-gradient { background: linear-gradient(135deg, var(--primary), oklch(0.65 0.18 200)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .subtitle { font-size: 0.88rem; color: var(--muted-foreground); max-width: 460px; margin: 0 0 26px; line-height: 1.6; }
@@ -126,9 +126,9 @@ body { max-width: none; padding: 0; background: var(--background); color: var(--
 .workbench-heading { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); padding: 0 0 12px; }
 .workbench-heading > div { display: grid; grid-template-columns: 20px auto; column-gap: 10px; align-items: center; }
 .section-index { grid-row: 1 / span 2; color: var(--primary); font-size: 0.75rem; } .section-kicker { color: var(--muted-foreground); font-size: 0.62rem; letter-spacing: 0.18em; }
-.workbench-heading h2 { grid-column: 2; margin: 4px 0 0; font-family: var(--font-display); font-size: 1.45rem; line-height: 1; } .live-status { color: var(--primary); font-size: 0.65rem; }
+.workbench-heading h2 { grid-column: 2; margin: 4px 0 0; font-family: var(--font-display); font-size: 1.45rem; line-height: 1; color: var(--foreground); } .live-status { color: var(--primary); font-size: 0.65rem; }
 .dot-pulse { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); animation: pulse-dot 1.6s ease-in-out infinite; }
-.card { border: 1px solid var(--border); border-radius: 0.75rem; background: var(--card-glass); overflow: hidden; margin-bottom: 22px; }
+.card { border: 1px solid var(--border); border-radius: 0.75rem; background: var(--card-glass); overflow: hidden; margin-bottom: 22px; padding: 0; }
 .card:nth-of-type(1) { background: oklch(0.12 0.025 215 / 0.82); border-color: oklch(0.48 0.09 215 / 0.55); }
 .card:nth-of-type(2) { background: oklch(0.13 0.025 175 / 0.82); border-color: oklch(0.52 0.1 175 / 0.55); }
 .card:nth-of-type(3) { background: oklch(0.14 0.025 285 / 0.82); border-color: oklch(0.5 0.09 285 / 0.55); }
