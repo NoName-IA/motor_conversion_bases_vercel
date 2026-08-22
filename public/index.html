@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Motor de Conversión de Bases y Aritmética de Bajo Nivel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Motor de Conversión de Bases Numéricas</h1>
+
+  <!-- Módulo 1: Entrada de datos -->
+  <section class="card">
+    <h2>1. Entrada de Datos</h2>
+
+    <label>Número</label>
+    <input type="text" id="numero" placeholder="Ej: 1010, 5A, 256...">
+
+    <label>Base de origen</label>
+    <select id="baseOrigen">
+      <option value="BIN">Binario</option>
+      <option value="OCT">Octal</option>
+      <option value="DEC" selected>Decimal</option>
+      <option value="HEX">Hexadecimal</option>
+    </select>
+
+    <label>Tamaño de palabra</label>
+    <select id="wordSize">
+      <option value="8">8 bits (Byte)</option>
+      <option value="16">16 bits (Word)</option>
+      <option value="32">32 bits (DWord)</option>
+      <option value="64">64 bits (QWord)</option>
+    </select>
+
+    <button id="btnConvertir">Convertir</button>
+    <p id="errorConvertir" class="error"></p>
+  </section>
+
+  <!-- Módulo 2: Salida multibase -->
+  <section class="card">
+    <h2>2. Panel de Registros</h2>
+    <label>Binario</label>
+    <input type="text" id="outBin" readonly>
+    <label>Octal</label>
+    <input type="text" id="outOct" readonly>
+    <label>Decimal</label>
+    <input type="text" id="outDec" readonly>
+    <label>Hexadecimal</label>
+    <input type="text" id="outHex" readonly>
+  </section>
+
+  <!-- Módulo 3: ALU -->
+  <section class="card">
+    <h2>3. Unidad Aritmético Lógica (ALU)</h2>
+    <label>Operando A (binario)</label>
+    <input type="text" id="aluBin1" placeholder="Ej: 1010">
+    <label>Operando B (binario)</label>
+    <input type="text" id="aluBin2" placeholder="Ej: 1100">
+    <label>Operación</label>
+    <select id="aluOp">
+      <option value="AND">AND</option>
+      <option value="OR">OR</option>
+      <option value="XOR">XOR</option>
+    </select>
+    <button id="btnAlu">Ejecutar</button>
+    <p id="errorAlu" class="error"></p>
+    <label>Resultado</label>
+    <input type="text" id="aluResultado" readonly>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

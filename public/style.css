@@ -1,0 +1,74 @@
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1 {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+h2 {
+  font-size: 1rem;
+  margin-top: 0;
+  color: #38bdf8;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  color: #94a3b8;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px 10px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #e2e8f0;
+  font-family: 'Consolas', monospace;
+}
+
+input[readonly] {
+  color: #22d3ee;
+  font-weight: bold;
+}
+
+button {
+  margin-top: 14px;
+  padding: 9px 16px;
+  background: #38bdf8;
+  border: none;
+  border-radius: 6px;
+  color: #0f172a;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0ea5e9;
+}
+
+.error {
+  color: #f87171;
+  font-size: 0.85rem;
+  min-height: 18px;
+}
