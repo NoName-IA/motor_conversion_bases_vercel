@@ -2,71 +2,69 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Motor de Conversión de Bases y Aritmética de Bajo Nivel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>Motor de Conversión de Bases Numéricas</h1>
+  <div class="cursor-glow" id="cursorGlow"></div>
 
-  <!-- Módulo 1: Entrada de datos -->
-  <section class="card">
-    <h2>1. Entrada de Datos</h2>
+  <nav class="top-nav" aria-label="Navegación principal">
+    <a class="brand" href="#inicio"><span class="brand-mark">&gt;_</span><span>CUL</span></a>
+    <a class="nav-active" href="#convertidor"><span aria-hidden="true">›</span> CONVERTIDOR</a>
+    <span class="nav-status"><span class="dot-pulse"></span> status: online</span>
+  </nav>
 
-    <label>Número</label>
-    <input type="text" id="numero" placeholder="Ej: 1010, 5A, 256...">
+  <main class="wrap" id="inicio">
 
-    <label>Base de origen</label>
-    <select id="baseOrigen">
-      <option value="BIN">Binario</option>
-      <option value="OCT">Octal</option>
-      <option value="DEC" selected>Decimal</option>
-      <option value="HEX">Hexadecimal</option>
-    </select>
+    <header class="page-header animate-fade-in-down">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar a modo claro" aria-pressed="false">
+        <span class="theme-icon" aria-hidden="true">☀</span>
+        <span class="theme-label">modo claro</span>
+      </button>
+      <p class="eyebrow">[ LABORATORIO / SISTEMAS NUMÉRICOS ]</p>
+      <h1 class="title-animated">MOTOR DE<br><span class="text-gradient typing-title">CONVERSIONES</span></h1>
+      <p class="subtitle">Una mesa de trabajo para explorar representaciones numéricas y lógica binaria, conectada directamente al motor de cálculo.</p>
+      <div class="hero-meta"><span>v1.0.0</span><i></i><span>BACKEND: VERCEL · API</span></div>
+    </header>
 
-    <label>Tamaño de palabra</label>
-    <select id="wordSize">
-      <option value="8">8 bits (Byte)</option>
-      <option value="16">16 bits (Word)</option>
-      <option value="32">32 bits (DWord)</option>
-      <option value="64">64 bits (QWord)</option>
-    </select>
+    <div class="workbench-heading" id="convertidor">
+      <div><span class="section-index">01</span><span class="section-kicker">INPUT / OUTPUT</span><h2>Conversor de bases</h2></div>
+      <span class="live-status"><span class="dot-pulse"></span> LIVE</span>
+    </div>
 
-    <button id="btnConvertir">Convertir</button>
-    <p id="errorConvertir" class="error"></p>
+  <section class="card glass hover-lift animate-scale-in stagger-1">
+    <div class="card-head"><div class="dots"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div><span class="card-path">~/motor/entrada</span><span class="card-tag">01</span></div>
+    <div class="card-body"><p class="section-label">Entrada de Datos</p>
+      <label for="numero">Número</label><input type="text" id="numero" placeholder="Ej: 1010, 5A, 256...">
+      <div class="grid-2"><div><label for="baseOrigen">Base de origen</label><select id="baseOrigen"><option value="BIN">Binario</option><option value="OCT">Octal</option><option value="DEC" selected>Decimal</option><option value="HEX">Hexadecimal</option></select></div><div><label for="wordSize">Tamaño de palabra</label><select id="wordSize"><option value="8">8 bits (Byte)</option><option value="16">16 bits (Word)</option><option value="32">32 bits (DWord)</option><option value="64">64 bits (QWord)</option></select></div></div>
+      <button id="btnConvertir"><span>convertir</span><span class="arrow">→</span></button><p id="errorConvertir" class="error"></p>
+    </div>
   </section>
 
-  <!-- Módulo 2: Salida multibase -->
-  <section class="card">
-    <h2>2. Panel de Registros</h2>
-    <label>Binario</label>
-    <input type="text" id="outBin" readonly>
-    <label>Octal</label>
-    <input type="text" id="outOct" readonly>
-    <label>Decimal</label>
-    <input type="text" id="outDec" readonly>
-    <label>Hexadecimal</label>
-    <input type="text" id="outHex" readonly>
+  <section class="card glass hover-lift animate-scale-in stagger-2">
+    <div class="card-head"><div class="dots"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div><span class="card-path">~/motor/registros</span><span class="card-tag">02</span></div>
+    <div class="card-body"><p class="section-label">Panel de Registros</p>
+      <label for="outBin">Binario</label><input type="text" id="outBin" readonly placeholder="—"><label for="outOct">Octal</label><input type="text" id="outOct" readonly placeholder="—"><label for="outDec">Decimal</label><input type="text" id="outDec" readonly placeholder="—"><label for="outHex">Hexadecimal</label><input type="text" id="outHex" readonly placeholder="—">
+    </div>
   </section>
 
-  <!-- Módulo 3: ALU -->
-  <section class="card">
-    <h2>3. Unidad Aritmético Lógica (ALU)</h2>
-    <label>Operando A (binario)</label>
-    <input type="text" id="aluBin1" placeholder="Ej: 1010">
-    <label>Operando B (binario)</label>
-    <input type="text" id="aluBin2" placeholder="Ej: 1100">
-    <label>Operación</label>
-    <select id="aluOp">
-      <option value="AND">AND</option>
-      <option value="OR">OR</option>
-      <option value="XOR">XOR</option>
-    </select>
-    <button id="btnAlu">Ejecutar</button>
-    <p id="errorAlu" class="error"></p>
-    <label>Resultado</label>
-    <input type="text" id="aluResultado" readonly>
+  <section class="card glass hover-lift animate-scale-in stagger-3">
+    <div class="card-head"><div class="dots"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div><span class="card-path">~/motor/alu</span><span class="card-tag">03</span></div>
+    <div class="card-body"><p class="section-label">Unidad Aritmético Lógica (ALU)</p>
+      <div class="grid-2"><div><label for="aluBin1">Operando A (binario)</label><input type="text" id="aluBin1" placeholder="Ej: 1010"></div><div><label for="aluBin2">Operando B (binario)</label><input type="text" id="aluBin2" placeholder="Ej: 1100"></div></div>
+      <label for="aluOp">Operación</label><select id="aluOp"><option value="AND">AND</option><option value="OR">OR</option><option value="XOR">XOR</option></select><button id="btnAlu"><span>ejecutar</span><span class="arrow">→</span></button><p id="errorAlu" class="error"></p><label for="aluResultado">Resultado</label><input type="text" id="aluResultado" readonly placeholder="—">
+    </div>
   </section>
+
+  <div class="terminal-status"><span class="prompt">❯</span><span class="typing-cursor">motor_conversion_bases --status ready</span></div>
+  </main>
+
+  <footer class="site-footer">made by Brandon Alvis <span aria-hidden="true">◆</span></footer>
 
   <script src="script.js"></script>
 </body>
